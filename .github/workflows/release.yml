@@ -75,7 +75,12 @@ jobs:
       - name: Conferir que o APK está assinado
         run: |
           APK=$(ls android/app/build/outputs/apk/release/*.apk | head -1)
-          "$ANDROID_HOME"/build-tools/*/apksigner verify --print-certs "$APK"
+          echo "APK: $APK"
+          # O runner tem várias versões de build-tools: usa a mais recente
+          # (um glob solto expandiria para vários caminhos e quebraria).
+          APKSIGNER=$(ls -d "$ANDROID_HOME"/build-tools/*/apksigner | sort -V | tail -1)
+          echo "apksigner: $APKSIGNER"
+          "$APKSIGNER" verify --verbose --print-certs "$APK"
           cp "$APK" "MetodoIAPro-Android-${{ github.run_number }}${APK_SUFFIX}.apk"
       - uses: actions/upload-artifact@v4
         with:
