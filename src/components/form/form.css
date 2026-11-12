@@ -1,0 +1,103 @@
+/* Campos de formulário — estende as regras de .field definidas em settings. */
+
+.field {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.field__label {
+  font-size: var(--text-sm);
+  font-weight: 600;
+  color: var(--text-secondary);
+}
+
+.field__required {
+  color: var(--accent);
+}
+
+.field__input {
+  width: 100%;
+  padding: 0.6rem 0.8rem;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-md);
+  background: var(--surface-1);
+  color: var(--text-strong);
+  font-size: var(--text-base);
+  min-height: 44px;
+  transition:
+    border-color var(--dur-fast) var(--ease-out),
+    background-color var(--dur-fast) var(--ease-out);
+}
+
+.field__input--area {
+  min-height: 96px;
+  resize: vertical;
+  line-height: 1.55;
+}
+
+.field__input::placeholder {
+  color: var(--text-muted);
+}
+
+.field__input:hover {
+  border-color: var(--hairline-strong);
+}
+
+.field__input:focus-visible {
+  outline: none;
+  border-color: var(--accent);
+  background: var(--surface-2);
+  box-shadow: 0 0 0 3px var(--accent-wash);
+}
+
+.field__hint {
+  font-size: var(--text-xs);
+  color: var(--text-muted);
+}
+
+.form-grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+@media (min-width: 720px) {
+  .form-grid--2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+.list-field__input-row {
+  display: flex;
+  gap: var(--space-2);
+}
+
+.list-field__input-row .field__input {
+  flex: 1;
+  min-width: 0;
+}
+
+.list-field__items {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-1);
+  margin-top: var(--space-1);
+}
+
+.list-field__item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+  padding: 0.45rem 0.5rem 0.45rem 0.8rem;
+  border-radius: var(--radius-sm);
+  background: var(--surface-1);
+  font-size: var(--text-sm);
+  color: var(--text-primary);
+}
+
+.icon-button--sm {
+  width: 30px;
+  height: 30px;
+  flex-shrink: 0;
+}

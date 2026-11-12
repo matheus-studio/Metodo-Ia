@@ -1,0 +1,14 @@
+{
+  "appId": "br.com.metodoiapro.app",
+  "appName": "Método IA Pro",
+  "webDir": "dist-app",
+  "android": {
+    "allowMixedContent": false
+  },
+  "ios": {
+    "contentInset": "always"
+  },
+  "server": {
+    "androidScheme": "https"
+  }
+}

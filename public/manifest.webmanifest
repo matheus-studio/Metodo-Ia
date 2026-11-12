@@ -1,0 +1,15 @@
+{
+  "name": "Método IA Pro",
+  "short_name": "IA Pro",
+  "description": "Da oportunidade à execução: encontrar o cliente, estruturar o serviço, propor, negociar e entregar.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#080b10",
+  "theme_color": "#080b10",
+  "lang": "pt-BR",
+  "icons": [
+    { "src": "/logo.svg", "sizes": "any", "type": "image/svg+xml", "purpose": "any" }
+  ]
+}

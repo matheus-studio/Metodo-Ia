@@ -1,0 +1,3 @@
+# Hospedagem estática (Netlify e compatíveis): rota profunda do SPA precisa
+# cair no index.html, senão /painel devolve 404 ao recarregar a página.
+/*    /index.html   200

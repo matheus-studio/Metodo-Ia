@@ -1,0 +1,106 @@
+/**
+ * Primitivas reutilizáveis de superfície e layout.
+ * Mantidas como classes simples para evitar uma dependência de CSS-in-JS.
+ */
+
+.panel {
+  position: relative;
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, var(--surface-2), var(--surface-1));
+  box-shadow: var(--shadow-2);
+  overflow: hidden;
+}
+
+/* Fio de luz superior: dá profundidade sem borda brilhante em todo o elemento. */
+.panel::before {
+  content: '';
+  position: absolute;
+  inset-inline: 10%;
+  top: 0;
+  height: 1px;
+  background: linear-gradient(90deg, transparent, var(--hairline-strong), transparent);
+  pointer-events: none;
+}
+
+.panel--flat {
+  box-shadow: none;
+  background: var(--surface-1);
+}
+
+.panel--accent {
+  border-color: rgba(238, 176, 74, 0.26);
+  background:
+    radial-gradient(28rem 16rem at 100% 0%, var(--accent-wash), transparent 70%),
+    linear-gradient(180deg, var(--surface-2), var(--surface-1));
+}
+
+.panel-body {
+  padding: var(--space-5);
+}
+
+@media (min-width: 768px) {
+  .panel-body {
+    padding: var(--space-6);
+  }
+}
+
+.stack {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+
+.row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+
+.row--between {
+  justify-content: space-between;
+}
+
+.grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+/**
+ * Linha curta de contexto acima de um título (seção, estágio, tipo de registro).
+ * Caixa baixa e sem espaçamento forçado: caixa alta espaçada chama mais atenção
+ * do que o próprio título e cansa quem lê a tela inteira.
+ */
+.eyebrow {
+  font-size: var(--text-sm);
+  font-weight: 560;
+  letter-spacing: 0;
+  color: var(--text-secondary);
+}
+
+.lede {
+  color: var(--text-secondary);
+  font-size: var(--text-md);
+  max-width: 62ch;
+}
+
+.muted {
+  color: var(--text-muted);
+}
+
+.secondary {
+  color: var(--text-secondary);
+}
+
+.hairline {
+  height: 1px;
+  border: 0;
+  background: var(--hairline);
+}
+
+.skeleton {
+  border-radius: var(--radius-md);
+  background: linear-gradient(90deg, var(--surface-1) 20%, var(--surface-3) 42%, var(--surface-1) 64%);
+  background-size: 220% 100%;
+  animation: shimmer 1.4s linear infinite;
+}

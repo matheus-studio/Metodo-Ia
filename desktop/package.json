@@ -1,0 +1,68 @@
+{
+  "name": "metodo-ia-pro-desktop",
+  "version": "0.5.0",
+  "private": true,
+  "description": "Método IA Pro — da oportunidade à execução, como aplicativo de computador.",
+  "author": "Método IA Pro",
+  "main": "main.js",
+  "scripts": {
+    "prepare-app": "node ./scripts/copy-app.mjs",
+    "dev": "npm run prepare-app && electron .",
+    "build:win": "npm run prepare-app && electron-builder --win --x64",
+    "build:win:portable": "npm run prepare-app && electron-builder --win --x64 --config.win.target=zip",
+    "build:linux": "npm run prepare-app && electron-builder --linux --x64"
+  },
+  "devDependencies": {
+    "electron": "38.4.0",
+    "electron-builder": "26.18.0"
+  },
+  "build": {
+    "appId": "br.com.metodoiapro.app",
+    "productName": "Método IA Pro",
+    "copyright": "© Método IA Pro",
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "files": [
+      "main.js",
+      "app/**/*",
+      "build/icon.png"
+    ],
+    "publish": null,
+    "win": {
+      "target": [
+        {
+          "target": "nsis",
+          "arch": [
+            "x64"
+          ]
+        },
+        {
+          "target": "zip",
+          "arch": [
+            "x64"
+          ]
+        }
+      ],
+      "icon": "build/icon.ico"
+    },
+    "nsis": {
+      "oneClick": true,
+      "perMachine": false,
+      "deleteAppDataOnUninstall": false,
+      "artifactName": "MetodoIAPro-Instalador-${version}.${ext}"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "tar.gz"
+      ],
+      "icon": "build/icon.png",
+      "category": "Office",
+      "synopsis": "Da oportunidade à execução",
+      "executableName": "metodo-ia-pro",
+      "artifactName": "MetodoIAPro-Linux-${version}.${ext}"
+    }
+  }
+}

@@ -1,0 +1,122 @@
+# Gera os instaladores de venda: Android (APK assinado), Windows e Linux.
+#
+# Por que existe: o APK não pode ser compilado em ambientes sem acesso aos
+# repositórios do Google/Gradle. O GitHub Actions tem esse acesso.
+#
+# Como usar: aba Actions > "Gerar instaladores" > Run workflow. Ao terminar,
+# os arquivos aparecem em "Artifacts" no fim da página da execução.
+#
+# Este arquivo NÃO foi executado por quem o escreveu (sem acesso ao GitHub).
+# Se a primeira execução falhar, a mensagem de erro do passo que quebrou diz
+# o que ajustar — o mais provável é um dos 3 secrets do Android faltando.
+name: Gerar instaladores
+
+on:
+  workflow_dispatch:
+  push:
+    tags: ['v*']
+
+jobs:
+  verificar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npm run qualidade
+
+  android:
+    needs: verificar
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - uses: actions/setup-java@v4
+        with: { distribution: temurin, java-version: 21 }
+      - run: npm ci
+      - run: npm run build:app -- --outDir dist-app
+      - run: npx cap sync android
+      - name: Preparar a chave de assinatura
+        env:
+          KS_B64: ${{ secrets.MIA_KEYSTORE_BASE64 }}
+          KS_PASS: ${{ secrets.MIA_KEYSTORE_PASSWORD }}
+          KS_ALIAS: ${{ secrets.MIA_KEY_ALIAS }}
+        run: |
+          KS="$RUNNER_TEMP/metodo-ia-pro.keystore"
+          if [ -n "$KS_B64" ]; then
+            echo "$KS_B64" | base64 -d > "$KS"
+            ALIAS="${KS_ALIAS:-metodo-ia-pro}"; PASS="$KS_PASS"
+            echo "APK_SUFFIX=" >> "$GITHUB_ENV"
+          else
+            # MODO TESTE: sem os segredos, gera uma chave descartável só para
+            # produzir um APK instalável e testar. A chave some ao fim da
+            # execução, então um APK futuro com a chave de verdade NÃO instala
+            # por cima deste (é preciso desinstalar antes). Não use para vender.
+            echo "::warning::Sem os segredos da chave: gerando APK de TESTE com chave descartável. Para o APK de venda, cadastre os 3 segredos (docs/lancamento/04-android-ci.md)."
+            ALIAS="metodo-ia-pro"; PASS="$(openssl rand -hex 16)"
+            keytool -genkeypair -keystore "$KS" -alias "$ALIAS" -keyalg RSA -keysize 2048 -validity 3650 \
+              -storepass "$PASS" -keypass "$PASS" -dname "CN=Metodo IA Pro TESTE"
+            echo "APK_SUFFIX=-TESTE" >> "$GITHUB_ENV"
+          fi
+          echo "::add-mask::$PASS"
+          {
+            echo "MIA_KEYSTORE_FILE=$KS"
+            echo "MIA_KEYSTORE_PASSWORD=$PASS"
+            echo "MIA_KEY_ALIAS=$ALIAS"
+          } >> "$GITHUB_ENV"
+      - name: Compilar APK assinado
+        working-directory: android
+        run: |
+          chmod +x gradlew
+          ./gradlew assembleRelease --no-daemon
+      - name: Conferir que o APK está assinado
+        run: |
+          APK=$(ls android/app/build/outputs/apk/release/*.apk | head -1)
+          "$ANDROID_HOME"/build-tools/*/apksigner verify --print-certs "$APK"
+          cp "$APK" "MetodoIAPro-Android-${{ github.run_number }}${APK_SUFFIX}.apk"
+      - uses: actions/upload-artifact@v4
+        with:
+          name: android-apk
+          path: MetodoIAPro-Android-*.apk
+
+  windows:
+    needs: verificar
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npm run build:app -- --outDir dist-app
+      - run: npm ci
+        working-directory: desktop
+      - run: npm run build:win
+        working-directory: desktop
+      - uses: actions/upload-artifact@v4
+        with:
+          name: windows
+          path: |
+            desktop/release/MetodoIAPro-Instalador-*.exe
+            desktop/release/*-win.zip
+
+  linux:
+    needs: verificar
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with: { node-version: 22, cache: npm }
+      - run: npm ci
+      - run: npm run build:app -- --outDir dist-app
+      - run: npm ci
+        working-directory: desktop
+      - run: npm run build:linux
+        working-directory: desktop
+      - uses: actions/upload-artifact@v4
+        with:
+          name: linux
+          path: |
+            desktop/release/MetodoIAPro-Linux-*.AppImage
+            desktop/release/MetodoIAPro-Linux-*.tar.gz

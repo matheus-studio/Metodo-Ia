@@ -1,0 +1,52 @@
+.services,
+.blueprint-editor {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+
+.services__grid {
+  display: grid;
+  gap: var(--space-4);
+}
+
+@media (min-width: 680px) {
+  .services__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (min-width: 1180px) {
+  .services__grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+}
+
+.service-card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+  padding: var(--space-5);
+  border: 1px solid var(--hairline);
+  border-radius: var(--radius-lg);
+  background: linear-gradient(180deg, var(--surface-2), var(--surface-1));
+  transition:
+    transform var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out);
+}
+
+.service-card:hover {
+  transform: translateY(-3px);
+  border-color: var(--hairline-strong);
+}
+
+.service-card__problem {
+  flex: 1;
+  font-size: var(--text-sm);
+  color: var(--text-secondary);
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}

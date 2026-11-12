@@ -1,0 +1,10 @@
+<svg width="48" height="48" viewBox="0 0 48 48" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <title>Método IA Pro</title>
+  <rect width="48" height="48" rx="12" fill="#0B0F15"/>
+  <rect x="0.5" y="0.5" width="47" height="47" rx="11.5" stroke="#FFFFFF" stroke-opacity="0.14"/>
+  <g transform="translate(24 24) scale(0.66) translate(-24 -24)" stroke-width="5.6" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M10 38V14l14 17" stroke="#F4F7FB"/>
+    <path d="M38 14v24" stroke="#F4F7FB"/>
+    <path d="m24 31 14.5-21.5" stroke="#EEB04A"/>
+  </g>
+</svg>

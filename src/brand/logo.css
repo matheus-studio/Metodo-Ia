@@ -1,0 +1,27 @@
+.brand-logo {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.7em;
+  min-width: 0;
+}
+
+.logo-mark {
+  /* A tinta da marca acompanha o texto forte; só a diagonal fica âmbar. */
+  color: var(--text-strong);
+  flex-shrink: 0;
+}
+
+.brand-logo__text {
+  font-family: var(--font-display);
+  font-size: var(--text-md);
+  font-weight: 620;
+  letter-spacing: -0.025em;
+  color: var(--text-strong);
+  white-space: nowrap;
+}
+
+/* "Pro" é parte do nome, não um selo: mesma família e peso, tinta mais baixa. */
+.brand-logo__suffix {
+  color: var(--text-muted);
+  margin-left: -0.08em;
+}

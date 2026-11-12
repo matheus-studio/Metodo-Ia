@@ -1,0 +1,235 @@
+.dashboard {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-6);
+}
+
+.dashboard__intro {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+  padding-block: var(--space-2) var(--space-1);
+}
+
+.dashboard__title {
+  font-size: var(--text-2xl);
+}
+
+.dashboard__subtitle {
+  font-size: var(--text-base);
+  font-weight: 600;
+  color: var(--text-strong);
+}
+
+.dashboard__hint {
+  font-size: var(--text-sm);
+}
+
+.dashboard__columns {
+  display: grid;
+  gap: var(--space-5);
+}
+
+@media (min-width: 900px) {
+  .dashboard__columns {
+    grid-template-columns: 1.15fr 1fr;
+  }
+}
+
+/* -------------------------------------------------------- Próximo passo */
+
+.next-step__head {
+  margin-bottom: var(--space-3);
+  /* No celular o selo de progresso desce para a própria linha em vez de
+     espremer o rótulo em duas. */
+  flex-wrap: wrap;
+}
+
+.next-step__title {
+  font-size: var(--text-xl);
+  margin-bottom: var(--space-2);
+}
+
+.next-step__body {
+  color: var(--text-secondary);
+  max-width: 68ch;
+}
+
+.next-step__reason {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  margin-top: var(--space-3);
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.next-step__actions {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--space-3);
+  margin-top: var(--space-5);
+}
+
+/* Trilha da jornada: marcadores ligados por uma linha contínua. */
+.journey {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-3) var(--space-5);
+  margin-top: var(--space-6);
+  padding-top: var(--space-5);
+  border-top: 1px solid var(--hairline);
+}
+
+.journey__step {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-size: var(--text-sm);
+  color: var(--text-muted);
+}
+
+.journey__marker {
+  display: grid;
+  place-items: center;
+  width: 18px;
+  height: 18px;
+  border-radius: 50%;
+  border: 1px solid var(--hairline-strong);
+  color: var(--text-on-accent);
+  transition:
+    background-color var(--dur-base) var(--ease-out),
+    border-color var(--dur-base) var(--ease-out);
+}
+
+.journey__step.is-done {
+  color: var(--text-primary);
+}
+
+.journey__step.is-done .journey__marker {
+  background: var(--accent);
+  border-color: transparent;
+}
+
+/* ------------------------------------------------------------ Números */
+
+/* -------------------------------------------------------------- Funil */
+
+.funnel {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-3);
+}
+
+.funnel__row {
+  display: grid;
+  grid-template-columns: 6.5rem 1fr 2rem;
+  align-items: center;
+  gap: var(--space-3);
+  font-size: var(--text-sm);
+}
+
+.funnel__label {
+  color: var(--text-secondary);
+}
+
+.funnel__bar {
+  height: 10px;
+  border-radius: var(--radius-pill);
+  background: var(--surface-3);
+  overflow: hidden;
+}
+
+.funnel__fill {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--amber-500), var(--amber-300));
+  transform-origin: left center;
+  transform: scaleX(var(--funnel-scale, 0));
+  transition: transform var(--dur-cinematic) var(--ease-out);
+}
+
+.funnel__fill[data-stage='fechado'] {
+  background: linear-gradient(90deg, var(--jade-500), var(--jade-400));
+}
+
+.funnel__fill[data-stage='perdido'] {
+  background: linear-gradient(90deg, var(--graphite-600), var(--graphite-500));
+}
+
+.funnel__value {
+  text-align: right;
+  color: var(--text-strong);
+  font-weight: 600;
+}
+
+/* ------------------------------------------------------------ Tarefas */
+
+.task-list {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-2);
+}
+
+.task-list__item {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+  padding: var(--space-2) var(--space-3);
+  border-radius: var(--radius-sm);
+  background: var(--surface-1);
+  font-size: var(--text-sm);
+}
+
+.task-list__dot {
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--accent);
+  flex-shrink: 0;
+}
+
+.task-list__title {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.task-list__due {
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+}
+
+/* ---------------------------------------------------------- Atividade */
+
+.activity {
+  display: flex;
+  flex-direction: column;
+}
+
+.activity__item {
+  display: flex;
+  gap: var(--space-4);
+  padding: var(--space-3) 0;
+  border-bottom: 1px solid var(--hairline);
+  font-size: var(--text-sm);
+}
+
+.activity__item:last-child {
+  border-bottom: none;
+}
+
+.activity__time {
+  flex-shrink: 0;
+  width: 8.5rem;
+  color: var(--text-muted);
+  font-size: var(--text-xs);
+}
+
+.activity__text {
+  color: var(--text-secondary);
+}

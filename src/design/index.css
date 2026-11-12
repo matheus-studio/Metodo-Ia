@@ -1,0 +1,10 @@
+/* Ponto de entrada do design system.
+   Ordem importa: tokens → base → movimento → primitivas → padrões. */
+@import '@fontsource-variable/inter';
+@import '@fontsource-variable/bricolage-grotesque';
+
+@import './tokens.css';
+@import './base.css';
+@import './motion.css';
+@import './primitives.css';
+@import './patterns.css';

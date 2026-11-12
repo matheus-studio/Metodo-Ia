@@ -1,0 +1,94 @@
+/**
+ * Movimento: apenas transform/opacity, nunca propriedades que causam layout.
+ * Toda animação é cancelada em prefers-reduced-motion e nenhuma delas bloqueia
+ * interação (sem pointer-events: none durante entradas).
+ */
+
+@keyframes rise-in {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 6px, 0);
+  }
+  to {
+    opacity: 1;
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes sheen {
+  from {
+    transform: translate3d(-120%, 0, 0);
+  }
+  to {
+    transform: translate3d(220%, 0, 0);
+  }
+}
+
+@keyframes pulse-ring {
+  0% {
+    opacity: 0.55;
+    transform: scale(0.82);
+  }
+  70% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5);
+  }
+}
+
+@keyframes shimmer {
+  from {
+    background-position: 180% 0;
+  }
+  to {
+    background-position: -40% 0;
+  }
+}
+
+/**
+ * Entrada coordenada: o container define --stagger-index nos filhos e cada um
+ * entra com um atraso curto.
+ *
+ * Deliberadamente discreto: 6 px e 260 ms, com o atraso somado parando em
+ * ~165 ms. Deslize longo em cada bloco, a cada tela, lembra apresentação de
+ * slides e atrasa a leitura — o movimento aqui serve para dizer "o conteúdo
+ * chegou agora", não para ser percebido.
+ */
+.animate-rise {
+  animation: rise-in var(--dur-base) var(--ease-out) backwards;
+  animation-delay: calc(min(var(--stagger-index, 0), 3) * 55ms);
+}
+
+.animate-fade {
+  animation: fade-in var(--dur-base) var(--ease-out) backwards;
+  animation-delay: calc(min(var(--stagger-index, 0), 3) * 40ms);
+}
+
+/* Troca de rota: só luz, sem deslocamento. O conteúdo novo não "entra
+   voando" — ele aparece no lugar onde já vai ficar. */
+.route-enter {
+  animation: fade-in var(--dur-fast) var(--ease-out);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
