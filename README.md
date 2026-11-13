@@ -2,7 +2,7 @@
 
 **Da oportunidade à execução.** Plataforma para encontrar a oportunidade comercial, estruturar o serviço, propor, negociar e entregar — com apoio de IA onde ela realmente ajuda.
 
-> **Release candidate v0.5.0** — verificada em 13/11/2026: 266 testes passando, build publicável, orçamento de carga e contraste dentro dos limites, `npm audit` sem vulnerabilidades, e **LCP, INP e CLS medidos em navegador real** (números em `docs/qualidade.md`). A tabela de estado de cada funcionalidade (concluída, pendente de integração, planejada) está no mesmo documento.
+> **Release candidate v0.6.0** — verificada em 13/11/2026: 295 testes passando, build publicável, orçamento de carga e contraste dentro dos limites, `npm audit` sem vulnerabilidades, e **LCP, INP e CLS medidos em navegador real** (números em `docs/qualidade.md`). A tabela de estado de cada funcionalidade (concluída, pendente de integração, planejada) está no mesmo documento.
 
 > **Para vender:** comece por `docs/lancamento/00-leia-primeiro.md` (estado por plataforma, ordem dos passos, entrega, texto de venda, guia do comprador e termos).
 >
@@ -43,11 +43,11 @@ npm run build:app  # build com rota no fragmento (GitHub Pages, WebView/Capacito
 - **Missões** — ritmo semanal medido pelo registro real de atividade, com planejamento pessoal da semana. Sem pontos, sem medalhas, sem nível.
 - **Roteiro** — mapa de todos os módulos e o marco de cada um.
 - **Configurações** — perfil de trabalho, tema claro/escuro/sistema, exportação e restauração de backup, dados de demonstração sinalizados e exclusão total com confirmação.
-- **Base técnica** — IndexedDB atrás de uma camada de repositórios, rotas com *code splitting*, design system em tokens, navegação de celular e de desktop, limite de erro, pré-carregamento de rota por intenção e 266 testes automatizados.
+- **Base técnica** — IndexedDB atrás de uma camada de repositórios, rotas com *code splitting*, design system em tokens, navegação de celular e de desktop, limite de erro, pré-carregamento de rota por intenção e 295 testes automatizados.
 
 ### Sem página de apresentação
 
-O endereço raiz (`/`) **é o aplicativo**. Não existe página de venda na frente dele: quem abre o endereço cai no painel. Quem chega pela primeira vez é orientado dentro do próprio painel — o texto de abertura diz o que já vem pronto e desaparece assim que houver o primeiro registro. Material comercial, quando existir, mora fora do produto (ver `docs/comercial.md`).
+O endereço raiz (`/`) **é o aplicativo**. Não existe página de venda na frente dele: quem abre o endereço cai em **Hoje**, o plano de 7 dias. A pessoa escolhe o serviço e a cidade e, a partir daí, o aplicativo mostra uma única ação por vez (preparar a mensagem, achar negócios, abordar, responder, dar retorno). A tela **Clientes** abre as buscas em fontes públicas (Mapa, Google, Instagram), guarda os negócios numa fila e leva cada um da abordagem ao fechamento. O menu principal tem 4 itens (Hoje, Clientes, Serviços, Biblioteca) mais "Mais"; as demais telas ficam em "Ferramentas avançadas". Material comercial, quando existir, mora fora do produto (ver `docs/comercial.md`).
 
 ## A jornada, ligada de ponta a ponta
 

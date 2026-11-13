@@ -104,7 +104,7 @@ Medidas já aplicadas:
 
 ### CSS dividido por rota: a armadilha
 
-Cada rota carrega o CSS do seu próprio chunk. Isso é ótimo para o primeiro carregamento e tem uma armadilha que custou caro na v0.5.0: uma classe declarada no arquivo de uma funcionalidade **não existe** na tela de outra. Como várias telas reaproveitavam classes de `settings.css`, `catalog.css` e `crm.css`, elas renderizavam sem parte do estilo — invisível nos testes, porque jsdom não aplica CSS.
+Cada rota carrega o CSS do seu próprio chunk. Isso é ótimo para o primeiro carregamento e tem uma armadilha que custou caro na v0.6.0: uma classe declarada no arquivo de uma funcionalidade **não existe** na tela de outra. Como várias telas reaproveitavam classes de `settings.css`, `catalog.css` e `crm.css`, elas renderizavam sem parte do estilo — invisível nos testes, porque jsdom não aplica CSS.
 
 A regra que vale a partir daqui: **classe usada por mais de uma funcionalidade mora em `src/design/patterns.css`**, que entra no CSS de entrada e é sempre carregado. Classe de uma tela só continua no arquivo dela. Custo da correção: 0,9 kB comprimidos no arquivo de entrada.
 
@@ -114,7 +114,7 @@ Build atual (produção, comprimido): vendor 82,4 kB · entrada 8,0 kB · painel
 
 Orçamento declarado: ≤ 120 kB comprimidos no primeiro carregamento; cada rota nova ≤ 25 kB.
 
-Metas de Web Vitals (LCP < 2,5 s, INP < 200 ms, CLS < 0,1): **medidas em Chromium real na v0.5.0** e atendidas nos dois perfis testados, inclusive com CPU 4× mais lenta e 4G lento (LCP 1,7 s, CLS 0,000, pior interação 96 ms). São números de laboratório, com rede e CPU emuladas — não substituem dado de campo. Os valores, o método e as ressalvas estão em `docs/qualidade.md`, seção 4.1. O orçamento de carga (`npm run budget`) continua rodando sobre o build real e falhando se o primeiro carregamento passar de 120 kB comprimidos.
+Metas de Web Vitals (LCP < 2,5 s, INP < 200 ms, CLS < 0,1): **medidas em Chromium real na v0.6.0** e atendidas nos dois perfis testados, inclusive com CPU 4× mais lenta e 4G lento (LCP 1,7 s, CLS 0,000, pior interação 96 ms). São números de laboratório, com rede e CPU emuladas — não substituem dado de campo. Os valores, o método e as ressalvas estão em `docs/qualidade.md`, seção 4.1. O orçamento de carga (`npm run budget`) continua rodando sobre o build real e falhando se o primeiro carregamento passar de 120 kB comprimidos.
 
 Uma descoberta da medição: o pré-carregamento de rota por intenção disparava o `import()` dentro do próprio `pointerenter`, e aquele evento virava a interação mais lenta do aplicativo. A importação passou a ser agendada para o tempo ocioso — o download começa alguns milissegundos depois e o ponteiro responde no quadro seguinte.
 

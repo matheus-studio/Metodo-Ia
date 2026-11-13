@@ -11,7 +11,7 @@ import type { IconName } from '@/components/ui/Icon'
 
 export type ModuleStatus = 'disponivel' | 'marco-3'
 
-export type ModuleGroup = 'operacao' | 'comercial' | 'execucao' | 'conhecimento' | 'sistema'
+export type ModuleGroup = 'principal' | 'avancado' | 'sistema'
 
 export interface AppModule {
   key: string
@@ -26,30 +26,47 @@ export interface AppModule {
 }
 
 export const GROUP_LABELS: Record<ModuleGroup, string> = {
-  operacao: 'Operação',
-  comercial: 'Comercial',
-  execucao: 'Execução',
-  conhecimento: 'Conhecimento',
+  principal: 'Seu caminho',
+  avancado: 'Ferramentas avançadas',
   sistema: 'Sistema',
 }
 
 export const MODULES: readonly AppModule[] = [
   {
     key: 'dashboard',
-    label: 'Painel',
+    label: 'Hoje',
     path: '/',
-    icon: 'dashboard',
-    group: 'operacao',
+    icon: 'target',
+    group: 'principal',
     status: 'disponivel',
     primary: true,
-    summary: 'Centro da jornada: situação atual, próximo passo recomendado e atividade recente.',
+    summary: 'Plano de 7 dias: o que fazer hoje para conseguir o primeiro cliente.',
+  },
+  {
+    key: 'clients',
+    label: 'Clientes',
+    path: '/clientes',
+    icon: 'pipeline',
+    group: 'principal',
+    status: 'disponivel',
+    primary: true,
+    summary: 'Ache negócios, abordagem pronta, retornos e fechamento, em uma fila só.',
+  },
+  {
+    key: 'overview',
+    label: 'Visão geral',
+    path: '/painel',
+    icon: 'dashboard',
+    group: 'avancado',
+    status: 'disponivel',
+    summary: 'Painel com todos os seus registros, funil e atividade recente.',
   },
   {
     key: 'radar-servicos',
     label: 'Serviços',
     path: '/radar/servicos',
     icon: 'radar',
-    group: 'comercial',
+    group: 'principal',
     status: 'disponivel',
     primary: true,
     summary: 'Catálogo com escopo, entregáveis, ferramentas, riscos e plano de execução de cada serviço.',
@@ -59,7 +76,7 @@ export const MODULES: readonly AppModule[] = [
     label: 'Construtor',
     path: '/servicos',
     icon: 'blueprint',
-    group: 'comercial',
+    group: 'avancado',
     status: 'disponivel',
     summary: 'Transforma uma ideia em serviço estruturado: escopo, etapas, prazo, riscos e checklist.',
   },
@@ -68,7 +85,7 @@ export const MODULES: readonly AppModule[] = [
     label: 'Ofertas',
     path: '/ofertas',
     icon: 'offer',
-    group: 'comercial',
+    group: 'avancado',
     status: 'disponivel',
     summary: 'Proposta comercial editável, da dor do cliente ao próximo passo, pronta para copiar ou exportar.',
   },
@@ -77,26 +94,25 @@ export const MODULES: readonly AppModule[] = [
     label: 'Prospecção',
     path: '/prospeccao',
     icon: 'message',
-    group: 'comercial',
+    group: 'avancado',
     status: 'disponivel',
     summary: 'Preparo de abordagens por canal, com revisão antes do envio. Sem disparo automático.',
   },
   {
     key: 'crm',
-    label: 'CRM',
+    label: 'CRM completo',
     path: '/crm',
     icon: 'pipeline',
-    group: 'comercial',
+    group: 'avancado',
     status: 'disponivel',
-    primary: true,
     summary: 'Contatos, empresas e negociações do primeiro contato ao fechamento.',
   },
   {
     key: 'roadmap',
-    label: 'Roteiro',
+    label: 'Roteiro do app',
     path: '/roteiro',
     icon: 'map',
-    group: 'operacao',
+    group: 'avancado',
     status: 'disponivel',
     summary: 'O que já está pronto, o que vem a seguir e em qual marco cada módulo entra.',
   },
@@ -114,7 +130,7 @@ export const MODULES: readonly AppModule[] = [
     label: 'Encontrar Empresas',
     path: '/radar/empresas',
     icon: 'building',
-    group: 'comercial',
+    group: 'avancado',
     status: 'marco-3',
     summary: 'Busca de estabelecimentos reais por fonte autorizada, com classificação de presença digital.',
   },
@@ -123,7 +139,7 @@ export const MODULES: readonly AppModule[] = [
     label: 'Projetos',
     path: '/projetos',
     icon: 'project',
-    group: 'execucao',
+    group: 'avancado',
     status: 'disponivel',
     summary: 'Briefing, planejamento, execução, revisão e entrega conectados à oferta aceita.',
   },
@@ -132,7 +148,7 @@ export const MODULES: readonly AppModule[] = [
     label: 'Preços',
     path: '/precificacao',
     icon: 'calculator',
-    group: 'execucao',
+    group: 'avancado',
     status: 'disponivel',
     summary: 'Cálculo transparente por hora, custos, revisões e margem — transferível para a oferta.',
   },
@@ -141,7 +157,7 @@ export const MODULES: readonly AppModule[] = [
     label: 'IA Studio',
     path: '/studio',
     icon: 'spark',
-    group: 'conhecimento',
+    group: 'avancado',
     status: 'disponivel',
     summary: 'Construtor de prompts com papel, contexto, método, restrições e critérios de qualidade.',
   },
@@ -150,7 +166,7 @@ export const MODULES: readonly AppModule[] = [
     label: 'Biblioteca',
     path: '/biblioteca',
     icon: 'book',
-    group: 'conhecimento',
+    group: 'principal',
     status: 'disponivel',
     primary: true,
     summary: 'Prompts, modelos, scripts e checklists detalhados por área de trabalho.',
@@ -160,7 +176,7 @@ export const MODULES: readonly AppModule[] = [
     label: 'Academia',
     path: '/academia',
     icon: 'academy',
-    group: 'conhecimento',
+    group: 'avancado',
     status: 'disponivel',
     summary: 'IA, marketing, vendas e prestação de serviços explicados com aplicação prática.',
   },
@@ -169,7 +185,7 @@ export const MODULES: readonly AppModule[] = [
     label: 'Missões',
     path: '/missoes',
     icon: 'target',
-    group: 'execucao',
+    group: 'avancado',
     status: 'disponivel',
     summary: 'Metas, tarefas e planejamento semanal para manter a execução em movimento.',
   },
@@ -186,7 +202,7 @@ export function moduleByKey(key: string): AppModule | undefined {
 }
 
 export function availableByGroup(): { group: ModuleGroup; modules: AppModule[] }[] {
-  const order: ModuleGroup[] = ['operacao', 'comercial', 'execucao', 'conhecimento', 'sistema']
+  const order: ModuleGroup[] = ['principal', 'avancado', 'sistema']
   return order
     .map((group) => ({ group, modules: AVAILABLE_MODULES.filter((module) => module.group === group) }))
     .filter((entry) => entry.modules.length > 0)

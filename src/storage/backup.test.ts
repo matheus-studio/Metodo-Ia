@@ -198,3 +198,24 @@ describe('backup', () => {
     expect(rows[0]?.name).toBe('Empresa A')
   })
 })
+
+describe('plano de 7 dias no backup', () => {
+  it('vai junto no backup e volta na restauração', async () => {
+    const { writePlan, readPlan } = await import('@/features/plan/planStore')
+    writePlan({ serviceKey: 'site-institucional', city: 'Curitiba', dailyGoal: 5, startedOn: '2026-11-13', log: {} })
+    const file = await exportBackup()
+    expect(file.plan?.city).toBe('Curitiba')
+
+    writePlan(null)
+    const parsed = parseBackup(JSON.stringify(file))
+    await importBackup(parsed, 'replace')
+    expect(readPlan()?.serviceKey).toBe('site-institucional')
+  })
+
+  it('ignora plano malformado em vez de recusar o backup', async () => {
+    const { exportBackup: exportNow } = await import('./backup')
+    const file = await exportNow()
+    const parsed = parseBackup(JSON.stringify({ ...file, plan: { serviceKey: 42 } }))
+    expect(parsed.plan).toBeUndefined()
+  })
+})

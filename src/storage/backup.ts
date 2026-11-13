@@ -1,5 +1,8 @@
 import { repositories } from '@/repositories'
 import type { RepositoryKey } from '@/repositories'
+import { sanitizePlan } from '@/features/plan/planLogic'
+import type { Plan } from '@/features/plan/planLogic'
+import { readPlan, writePlan } from '@/features/plan/planStore'
 import type { Entity } from '@/types/domain'
 import { describeIssues, validateCollection } from './backupSchema'
 import type { RecordIssue } from './backupSchema'
@@ -16,6 +19,8 @@ export interface BackupFile {
   version: number
   exportedAt: string
   collections: Partial<Record<RepositoryKey, Entity[]>>
+  /** Plano de 7 dias (opcional: backups antigos não têm). */
+  plan?: Plan
 }
 
 export interface ImportSummary {
@@ -47,7 +52,14 @@ export async function exportBackup(): Promise<BackupFile> {
   for (const key of COLLECTIONS) {
     collections[key] = (await repositories[key].list()) as Entity[]
   }
-  return { format: BACKUP_FORMAT, version: BACKUP_VERSION, exportedAt: new Date().toISOString(), collections }
+  const plan = readPlan()
+  return {
+    format: BACKUP_FORMAT,
+    version: BACKUP_VERSION,
+    exportedAt: new Date().toISOString(),
+    collections,
+    ...(plan ? { plan } : {}),
+  }
 }
 
 /**
@@ -112,11 +124,15 @@ export function parseBackup(raw: string): BackupFile {
     throw new BackupValidationError('O backup não contém nenhuma coleção reconhecida.')
   }
 
+  // O plano é opcional e nunca derruba a importação: se vier malformado, é ignorado.
+  const plan = sanitizePlan(file.plan)
+
   return {
     format: BACKUP_FORMAT,
     version: file.version,
     exportedAt: typeof file.exportedAt === 'string' ? file.exportedAt : new Date().toISOString(),
     collections,
+    ...(plan ? { plan } : {}),
   }
 }
 
@@ -205,6 +221,9 @@ export async function importBackup(file: BackupFile, mode: 'merge' | 'replace' =
     await applyWithSnapshot(file, mode)
   }
 
+  // Mesclar não sobrescreve um plano em andamento; substituir, sim.
+  if (file.plan && (mode === 'replace' || !readPlan())) writePlan(file.plan)
+
   const perCollection: Partial<Record<RepositoryKey, number>> = {}
   let imported = 0
   for (const key of keys) {
@@ -220,4 +239,5 @@ export async function clearAllData(): Promise<void> {
   for (const key of COLLECTIONS) {
     await repositories[key].clear()
   }
+  writePlan(null)
 }

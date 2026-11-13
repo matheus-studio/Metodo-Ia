@@ -6,6 +6,8 @@ import { NotFoundPage } from '@/components/NotFoundPage'
 import type { ComponentType } from 'react'
 
 // Cada rota é um chunk próprio: o primeiro carregamento traz apenas o painel.
+const TodayPage = lazy(() => import('@/features/plan/TodayPage'))
+const ClientsPage = lazy(() => import('@/features/clients/ClientsPage'))
 const DashboardPage = lazy(() => import('@/features/dashboard/DashboardPage'))
 const RoadmapPage = lazy(() => import('@/features/roadmap/RoadmapPage'))
 const SettingsPage = lazy(() => import('@/features/settings/SettingsPage'))
@@ -38,8 +40,9 @@ export function AppRoutes() {
     <Routes>
       <Route element={<AppShell />}>
         {/* A raiz é o aplicativo: não há página de apresentação na frente. */}
-        <Route path="/" element={lazyRoute(DashboardPage)} />
-        <Route path="/painel" element={<Navigate to="/" replace />} />
+        <Route path="/" element={lazyRoute(TodayPage)} />
+        <Route path="/clientes" element={lazyRoute(ClientsPage)} />
+        <Route path="/painel" element={lazyRoute(DashboardPage)} />
         <Route path="/roteiro" element={lazyRoute(RoadmapPage)} />
         <Route path="/configuracoes" element={lazyRoute(SettingsPage)} />
 

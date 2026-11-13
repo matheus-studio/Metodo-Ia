@@ -77,7 +77,7 @@ um aparelho de verdade, e vale quinze minutos seus na primeira publicação:
 
 O projeto Android já está gerado e commitado em `android/` (Capacitor 8.6.0),
 com ícone próprio em todas as densidades, `versionName` sincronizado com o
-app (0.5.0) e `webDir` apontando para `dist-app` (build com rota no
+app (0.6.0) e `webDir` apontando para `dist-app` (build com rota no
 fragmento — a `WebView` do Capacitor não reescreve URL como um servidor
 faria).
 

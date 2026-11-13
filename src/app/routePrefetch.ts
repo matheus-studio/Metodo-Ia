@@ -11,7 +11,9 @@
  */
 
 const LOADERS: Record<string, () => Promise<unknown>> = {
-  '/': () => import('@/features/dashboard/DashboardPage'),
+  '/': () => import('@/features/plan/TodayPage'),
+  '/clientes': () => import('@/features/clients/ClientsPage'),
+  '/painel': () => import('@/features/dashboard/DashboardPage'),
   '/roteiro': () => import('@/features/roadmap/RoadmapPage'),
   '/configuracoes': () => import('@/features/settings/SettingsPage'),
   '/radar/servicos': () => import('@/features/catalog/CatalogPage'),

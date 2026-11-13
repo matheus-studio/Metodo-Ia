@@ -22,14 +22,14 @@ function renderAt(route: string) {
 describe('entrada do aplicativo', () => {
   it('abre o aplicativo na raiz, com a navegação do shell', async () => {
     const { container } = renderAt('/')
-    expect(await screen.findByText('Próximo passo recomendado')).toBeInTheDocument()
+    expect(await screen.findByText('Do zero ao primeiro cliente, um passo por dia')).toBeInTheDocument()
     expect(container.querySelector('.bottomnav')).not.toBeNull()
     expect(container.querySelector('.rail')).not.toBeNull()
   })
 
   it('não tem porta de entrada comercial antes do aplicativo', async () => {
     const { container } = renderAt('/')
-    await screen.findByText('Próximo passo recomendado')
+    await screen.findByText('Do zero ao primeiro cliente, um passo por dia')
     const texto = container.textContent ?? ''
 
     expect(screen.queryByRole('link', { name: /abrir o aplicativo|começar agora/i })).toBeNull()
@@ -44,17 +44,15 @@ describe('entrada do aplicativo', () => {
 
   it('no primeiro acesso diz o que já existe dentro do aplicativo', async () => {
     renderAt('/')
-    const intro = await screen.findByText(/você está no aplicativo completo/i)
+    const intro = await screen.findByText(/escolha entre/i)
     expect(intro).toHaveTextContent(String(CONTENT_COUNTS.servicos))
-    expect(intro).toHaveTextContent(String(CONTENT_COUNTS.materiais))
-    expect(intro).toHaveTextContent(String(CONTENT_COUNTS.aulas))
     // Sem conta e sem nuvem é a promessa que a tela precisa sustentar.
     expect(intro).toHaveTextContent(/fica neste aparelho/i)
   })
 
   it('mostra a marca uma única vez para o leitor de tela', async () => {
     renderAt('/')
-    await screen.findByText('Próximo passo recomendado')
+    await screen.findByText('Do zero ao primeiro cliente, um passo por dia')
     // A marca do trilho acompanha o nome escrito: o desenho não repete o nome.
     expect(screen.getAllByRole('img', { name: 'Método IA Pro' })).toHaveLength(1)
   })

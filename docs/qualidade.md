@@ -1,4 +1,4 @@
-# Qualidade — release candidate v0.5.0
+# Qualidade — release candidate v0.6.0
 
 Tudo nesta página foi **executado em 16/10/2026**, no código desta entrega.
 Reproduza o essencial com um comando: `npm run qualidade` (typecheck → lint →
@@ -22,7 +22,7 @@ foram medidas à parte, em Chromium real — ver seção 4.
 | Academia (17 aulas, 24 termos) | Concluído | Ajuda contextual embutida nas telas de CRM, ofertas, preços, projetos, Studio e prospecção |
 | Missões | Concluído | Progresso vindo do histórico real de atividade |
 | Configurações e backup | Concluído | Exportação, restauração atômica (mesclar/substituir), demonstração sinalizada, exclusão com confirmação |
-| Entrada no aplicativo | Concluído | A raiz (`/`) é o painel; não há página de apresentação. Orientação de primeiro acesso dentro do painel |
+| Entrada no aplicativo | Concluído | A raiz (`/`) é o plano de 7 dias (Hoje); não há página de apresentação. O painel antigo continua em `/painel` (Visão geral) |
 | Roteiro | Concluído | Lê o mesmo registro de módulos da navegação |
 | **Radar de empresas reais** | **Integração pendente** | Contratos e isolamento prontos; falta fonte + servidor (`docs/radar.md`) |
 | **Contas e pagamentos** | **Planejado** | Contratos de tipo escritos; nenhuma integração (`docs/comercial.md`) |
@@ -33,7 +33,7 @@ foram medidas à parte, em Chromium real — ver seção 4.
 ## 2. Testes automatizados
 
 ```
-30 arquivos · 266 testes · 266 passando (13/11/2026)
+33 arquivos · 295 testes · 295 passando (13/11/2026)
 ```
 
 | Área | O que é verificado |
@@ -46,7 +46,7 @@ foram medidas à parte, em Chromium real — ver seção 4.
 | Acessibilidade | axe-core em 22 rotas |
 | Integrações | Cobrança e Radar recusam operação em vez de simular |
 
-## 3. Correções desta rodada (v0.5.0 — interface e identidade)
+## 3. Correções desta rodada (v0.6.0 — interface e identidade)
 
 | Problema | Correção | Como foi verificado |
 | --- | --- | --- |
@@ -98,11 +98,11 @@ Lighthouse nem medição em aparelho físico (ver seção 8).
 `npm run budget`, medido sobre o `dist/` real:
 
 ```
-  ok   Primeiro carregamento (painel)        110,5 / 120 kB comprimidos (subiu ~6 kB: backup nativo do Android e instalação do PWA)
+  ok   Primeiro carregamento (painel)        110,8 / 120 kB comprimidos (a tela inicial agora é o plano de 7 dias)
   ok   Maior chunk de rota (libraryData)      22,1 /  30 kB comprimidos
   ok   CSS de entrada                          6,6 /  12 kB comprimidos
 
-Total publicado: 541,8 kB comprimidos em 67 arquivos
+Total publicado: 556,1 kB comprimidos em 76 arquivos
 ```
 
 Composição do primeiro acesso: vendor 79,5 · entrada 10,4 · CSS base 6,6 ·

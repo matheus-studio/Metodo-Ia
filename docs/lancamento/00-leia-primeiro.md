@@ -1,6 +1,6 @@
 # Lançamento do Método IA Pro — por onde começar
 
-Atualizado em 13/11/2026 · Produto: versão 0.5.0
+Atualizado em 13/11/2026 · Produto: versão 0.6.0
 
 ## Decisão: vender o aplicativo baixável
 
