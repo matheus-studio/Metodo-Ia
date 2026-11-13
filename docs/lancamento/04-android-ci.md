@@ -44,9 +44,13 @@ instala por cima dele; quem tem o de teste precisa desinstalar antes.
 
 ## 4. Rodar
 
-Aba **Actions** → **Gerar instaladores** → **Run workflow**. Leva alguns
-minutos. No fim, a página da execução mostra **Artifacts**: `android-apk`,
-`windows`, `linux`. Baixe, descompacte.
+**Mais fácil:** depois de cadastrar os segredos, me avise e eu disparo o
+pipeline (envio o projeto para o ramo `release`).
+
+**Você mesmo:** aba **Actions** → **Gerar instaladores** → **Run workflow**. No
+celular esse botão só aparece em "Site para computador". Leva alguns minutos.
+No fim, a página da execução mostra **Artifacts**: `android-apk`, `windows`,
+`linux`. Baixe, descompacte.
 
 O pipeline falha de propósito se faltar o segredo da chave ou se o APK sair
 sem assinatura válida.

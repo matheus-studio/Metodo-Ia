@@ -1,5 +1,7 @@
 # Publica a versão web instalável (PWA) no GitHub Pages.
 #
+# Opcional e hoje DESLIGADO por padrão (só manual): o produto vendido é o
+# aplicativo baixável. Serve para publicar a versão web se um dia for útil.
 # Uso: no repositório, Settings > Pages > Build and deployment > Source:
 # "GitHub Actions" (uma vez). Depois cada envio para main republica.
 # Endereço: https://<usuario>.github.io/<repositorio>/
@@ -10,8 +12,6 @@ name: Publicar versão web (PWA)
 
 on:
   workflow_dispatch:
-  push:
-    branches: [main]
 
 permissions:
   contents: read
