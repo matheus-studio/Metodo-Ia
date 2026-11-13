@@ -1,4 +1,5 @@
 import { useMemo, useState } from 'react'
+import { InstallBanner } from '@/pwa/InstallCard'
 import { Link } from 'react-router-dom'
 import { MILESTONE_LABELS } from '@/app/modules'
 import { CONTENT_COUNTS } from '@/app/contentCounts'
@@ -78,6 +79,7 @@ export default function DashboardPage() {
 
   return (
     <div className="dashboard">
+      <InstallBanner />
       <header className="dashboard__intro animate-rise">
         <h1 className="dashboard__title">
           {salutation}

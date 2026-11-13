@@ -1,36 +1,38 @@
-# Método IA Pro — guia de instalação
+# Método IA Pro — como instalar
 
-Obrigado pela compra. Escolha o seu aparelho.
+Obrigado pela compra. Você instala direto do navegador, sem baixar arquivo e
+sem criar conta. Abra o link que recebeu: [COLE AQUI O LINK].
 
-## Windows (10 ou 11)
+## Android (Chrome)
 
-1. Baixe `MetodoIAPro-Instalador-0.5.0.exe`.
-2. Dê dois cliques. Pode aparecer a tela azul **"O Windows protegeu o computador"**. Isso acontece com programas novos que ainda não têm assinatura digital paga; não é um alerta de vírus.
-3. Clique em **Mais informações** e depois em **Executar assim mesmo**.
-4. A instalação é de um clique e não pede senha de administrador. O atalho aparece no Menu Iniciar.
+1. Abra o link no **Chrome**.
+2. Toque em **Instalar aplicativo** (aparece como aviso na tela inicial do app e em **Configurações**). Se não aparecer, toque nos três pontinhos do Chrome e escolha **Instalar aplicativo** ou **Adicionar à tela inicial**.
+3. Confirme. O ícone **IA Pro** aparece na tela do celular.
 
-Sem instalar? Use o `.zip`: extraia a pasta e abra `Método IA Pro.exe`.
+## iPhone e iPad (Safari)
 
-## Android
+1. Abra o link no **Safari** (não funciona do mesmo jeito em navegadores dentro de outros aplicativos).
+2. Toque em **Compartilhar** (o quadrado com uma seta para cima).
+3. Role e toque em **Adicionar à Tela de Início** e confirme.
 
-1. Baixe o arquivo `.apk` no próprio celular (ou copie do computador).
-2. Toque no arquivo. O Android avisa que a instalação de fontes desconhecidas está bloqueada: toque em **Configurações** e permita para o app que você está usando (navegador ou Arquivos).
-3. Volte e toque em **Instalar**. Se aparecer um aviso do Play Protect dizendo que o app não é conhecido, escolha **Instalar mesmo assim**.
+## Windows, Mac e Linux (Chrome ou Edge)
 
-## Linux
+1. Abra o link no **Chrome** ou no **Edge**.
+2. Clique no ícone de instalar na barra de endereço (um monitor com uma seta), ou no menu (três pontinhos) → **Instalar Método IA Pro**.
+3. O app abre numa janela própria e fica no menu de aplicativos.
 
-1. Baixe `MetodoIAPro-Linux-0.5.0.AppImage`.
-2. No terminal, na pasta do arquivo: `chmod +x MetodoIAPro-Linux-0.5.0.AppImage` e depois `./MetodoIAPro-Linux-0.5.0.AppImage`.
-3. Se pedir FUSE (Ubuntu 22.04 em diante): `sudo apt install libfuse2`, ou rode com `--appimage-extract-and-run`.
-4. Se a janela não abrir no Ubuntu 24.04 ou semelhante por causa do sandbox, rode com `--no-sandbox`.
-5. Alternativa sem AppImage: extraia o `.tar.gz` e execute o arquivo `metodo-ia-pro` da pasta.
+## Depois de instalado
+
+- **Funciona sem internet.** Você só precisa de internet para a primeira abertura e para receber atualizações.
+- **Atualizações:** quando saem melhorias, o app baixa a nova versão sozinho quando você está online, e passa a usá-la na próxima vez que você **fechar e abrir** o aplicativo.
 
 ## Seus dados
 
-- Ficam **só neste aparelho**. Não há conta, nem nuvem.
-- Para guardar uma cópia: **Configurações → Exportar backup**. No Android abre a janela de compartilhar para você escolher onde salvar (Drive, WhatsApp, e-mail…).
+- Ficam **só neste aparelho**, dentro do app. Não há conta nem nuvem, e nada é enviado para ninguém.
+- Para guardar uma cópia: **Configurações → Exportar backup**. Escolha onde salvar (no celular abre a janela de compartilhar).
 - Para passar os dados para outro aparelho: exporte aqui, instale lá e use **Restaurar backup**.
-- **Faça backup de vez em quando.** Se o aparelho for formatado ou perdido, sem backup não há como recuperar.
+- **Faça backup de vez em quando.** Se você limpar os dados do navegador, desinstalar o app ou perder o aparelho, sem backup não há como recuperar.
+- **Use sempre o mesmo jeito de abrir.** Os dados do app instalado e os da aba do navegador são separados em alguns aparelhos; escolha um e fique nele.
 
 ## A IA
 
@@ -38,4 +40,4 @@ O app não tem IA embutida. O **IA Studio** monta o prompt; copie e cole na ferr
 
 ## Problemas
 
-Escreva para: [seu e-mail ou WhatsApp de suporte], dizendo o aparelho, a versão (aparece no rodapé da barra lateral) e o que aconteceu.
+Escreva para: [seu e-mail ou WhatsApp de suporte], dizendo o aparelho, o navegador e o que aconteceu.

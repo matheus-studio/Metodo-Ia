@@ -4,6 +4,7 @@ import { Badge, Button, Icon, Notice, Panel, SectionHeader } from '@/components/
 import { logActivity } from '@/repositories'
 import { clearAllData, exportBackup, importBackup, parseBackup } from '@/storage/backup'
 import { saveTextFile } from '@/storage/saveFile'
+import { InstallCard } from '@/pwa/InstallCard'
 import { STORAGE_MESSAGES, useStorageHealth } from '@/hooks/useStorageHealth'
 import { dataBus } from '@/services/dataBus'
 import { loadDemoData, removeDemoData } from '@/services/demoData'
@@ -159,6 +160,8 @@ export default function SettingsPage() {
           )}
         </div>
       </Panel>
+
+      <InstallCard />
 
       {/* --------------------------------------------------------- Perfil */}
       <Panel index={0}>

@@ -2,9 +2,10 @@
 import { fileURLToPath, URL } from 'node:url'
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
+import { offlinePlugin } from './scripts/offlinePlugin.ts'
 
 export default defineConfig({
-  plugins: [react()],
+  plugins: [react(), offlinePlugin()],
   resolve: {
     alias: {
       '@': fileURLToPath(new URL('./src', import.meta.url)),

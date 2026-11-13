@@ -1,5 +1,8 @@
 # Entrega via Kiwify — venda única, sem conta
 
+> **Atualização 13/11/2026:** o produto principal passou a ser a **versão web instalável (PWA)**, sem avisos de segurança e para todos os aparelhos. Os instaladores `.exe`/`.apk`/AppImage abaixo continuam possíveis, mas no Brasil o Android bloqueia APK de desenvolvedor não registrado. Veja `docs/lancamento/00-leia-primeiro.md`.
+
+
 Este documento descreve a Alternativa A de `docs/comercial.md` já
 implementada: o produto é vendido como download, pagamento único, sem conta
 e sem servidor. Esta página cobre o que efetivamente existe hoje — não é um

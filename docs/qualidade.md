@@ -33,7 +33,7 @@ foram medidas à parte, em Chromium real — ver seção 4.
 ## 2. Testes automatizados
 
 ```
-29 arquivos · 260 testes · 260 passando (12/11/2026)
+30 arquivos · 266 testes · 266 passando (13/11/2026)
 ```
 
 | Área | O que é verificado |
@@ -98,11 +98,11 @@ Lighthouse nem medição em aparelho físico (ver seção 8).
 `npm run budget`, medido sobre o `dist/` real:
 
 ```
-  ok   Primeiro carregamento (painel)        110,1 / 120 kB comprimidos (subiu ~5 kB: plugins de backup nativo do Android)
+  ok   Primeiro carregamento (painel)        110,5 / 120 kB comprimidos (subiu ~6 kB: backup nativo do Android e instalação do PWA)
   ok   Maior chunk de rota (libraryData)      22,1 /  30 kB comprimidos
   ok   CSS de entrada                          6,6 /  12 kB comprimidos
 
-Total publicado: 496,1 kB comprimidos em 61 arquivos
+Total publicado: 541,8 kB comprimidos em 67 arquivos
 ```
 
 Composição do primeiro acesso: vendor 79,5 · entrada 10,4 · CSS base 6,6 ·

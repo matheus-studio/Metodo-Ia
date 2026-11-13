@@ -42,24 +42,18 @@ abordagem, acompanhar clientes e projetos e calcular preço.
 ## Como funciona
 
 1. Você paga uma única vez.
-2. Recebe os arquivos de instalação para o seu aparelho.
-3. Instala e usa. Não precisa criar conta nem estar conectado.
+2. Recebe o link do aplicativo e o guia de instalação.
+3. Abre o link no celular ou no computador e toca em **Instalar** (ou **Adicionar à tela inicial**). Pronto: o ícone fica no aparelho, abre em tela cheia e funciona sem internet. Não precisa criar conta.
 
 ## Para qual aparelho
 
-- Windows (10 ou 11, 64 bits)
-- Android
-- Linux (64 bits)
-
-**Não há versão para iPhone/iPad nem para Mac nesta versão.**
+Celular Android, iPhone, Windows, Mac e Linux, pelo navegador atual (Chrome, Edge, Safari). Não há arquivo para baixar nem aviso de segurança na instalação.
 
 ## Leia antes de comprar
 
 - **Seus dados ficam só no aparelho em que você instalou.** Não há sincronização entre celular e computador, nem backup automático na nuvem. Use "Exportar backup" nas Configurações para guardar uma cópia; se formatar o aparelho sem fazer isso, os dados se perdem.
 - **A inteligência artificial não vem embutida.** O IA Studio monta os prompts e a Biblioteca traz modelos; você os usa na ferramenta de IA que já utiliza (ChatGPT, Claude, Gemini etc.). Essas ferramentas podem ter custo próprio.
 - **A busca automática de empresas ainda não existe.** A tela Roteiro mostra o plano. Você cadastra seus contatos manualmente ou por importação de backup.
-- **Aviso do Windows:** ao instalar, o Windows pode mostrar "O Windows protegeu o computador" porque o instalador ainda não tem assinatura digital paga. Clique em "Mais informações" → "Executar assim mesmo". O guia de instalação explica passo a passo.
-- **Android:** o arquivo é instalado fora da Play Store; o sistema pede que você autorize a instalação de fontes desconhecidas.
 - O conteúdo é material educacional e ferramenta de organização. **Não garante resultado financeiro, clientes ou faturamento.**
 - Atualizações: [defina aqui o canal — e-mail, grupo ou área de membros — e cumpra].
 
@@ -72,13 +66,13 @@ no seu aparelho, ofereça suporte antes do reembolso.
 
 ## Perguntas frequentes
 
-**Preciso de internet?** Para usar, não. Para baixar e instalar, sim.
+**Preciso de internet?** Para usar depois de instalado, não. Para abrir o link e instalar, sim.
 
-**Funciona no iPhone?** Não nesta versão.
+**Funciona no iPhone?** Sim, pelo Safari: Compartilhar → Adicionar à Tela de Início.
 
 **Meus dados vão para algum servidor?** Não. O aplicativo não envia dados para ninguém: ficam no seu aparelho.
 
-**Posso usar em mais de um aparelho?** Pode instalar em mais de um, mas cada instalação tem os próprios dados; não sincronizam. Dá para levar os dados de um para o outro por backup/restauração.
+**Posso usar em mais de um aparelho?** Pode instalar em mais de um, mas cada instalação tem os próprios dados; não sincronizam. Os dados também ficam presos ao navegador/ aparelho em que foram criados. Dá para levar os dados de um para o outro por backup/restauração.
 
 **Tem mensalidade?** Não: pagamento único. Atualizações futuras: [defina].
 

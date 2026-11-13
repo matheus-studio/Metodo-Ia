@@ -10,6 +10,7 @@ import '@/layouts/appshell.css'
 import { ErrorBoundary } from '@/app/ErrorBoundary'
 import { PreferencesProvider } from '@/app/PreferencesProvider'
 import { AppRouter } from '@/app/router'
+import { registerOfflineSupport, requestPersistentStorage } from '@/pwa/register'
 
 const container = document.getElementById('root')
 if (!container) throw new Error('Elemento #root não encontrado.')
@@ -23,3 +24,6 @@ createRoot(container).render(
     </ErrorBoundary>
   </StrictMode>,
 )
+
+registerOfflineSupport()
+void requestPersistentStorage()

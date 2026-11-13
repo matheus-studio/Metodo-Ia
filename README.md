@@ -2,7 +2,7 @@
 
 **Da oportunidade à execução.** Plataforma para encontrar a oportunidade comercial, estruturar o serviço, propor, negociar e entregar — com apoio de IA onde ela realmente ajuda.
 
-> **Release candidate v0.5.0** — verificada em 12/11/2026: 260 testes passando, build publicável, orçamento de carga e contraste dentro dos limites, `npm audit` sem vulnerabilidades, e **LCP, INP e CLS medidos em navegador real** (números em `docs/qualidade.md`). A tabela de estado de cada funcionalidade (concluída, pendente de integração, planejada) está no mesmo documento.
+> **Release candidate v0.5.0** — verificada em 13/11/2026: 266 testes passando, build publicável, orçamento de carga e contraste dentro dos limites, `npm audit` sem vulnerabilidades, e **LCP, INP e CLS medidos em navegador real** (números em `docs/qualidade.md`). A tabela de estado de cada funcionalidade (concluída, pendente de integração, planejada) está no mesmo documento.
 
 > **Para vender:** comece por `docs/lancamento/00-leia-primeiro.md` (estado por plataforma, ordem dos passos, entrega, texto de venda, guia do comprador e termos).
 >
@@ -43,7 +43,7 @@ npm run build:app  # build com rota no fragmento (GitHub Pages, WebView/Capacito
 - **Missões** — ritmo semanal medido pelo registro real de atividade, com planejamento pessoal da semana. Sem pontos, sem medalhas, sem nível.
 - **Roteiro** — mapa de todos os módulos e o marco de cada um.
 - **Configurações** — perfil de trabalho, tema claro/escuro/sistema, exportação e restauração de backup, dados de demonstração sinalizados e exclusão total com confirmação.
-- **Base técnica** — IndexedDB atrás de uma camada de repositórios, rotas com *code splitting*, design system em tokens, navegação de celular e de desktop, limite de erro, pré-carregamento de rota por intenção e 260 testes automatizados.
+- **Base técnica** — IndexedDB atrás de uma camada de repositórios, rotas com *code splitting*, design system em tokens, navegação de celular e de desktop, limite de erro, pré-carregamento de rota por intenção e 266 testes automatizados.
 
 ### Sem página de apresentação
 

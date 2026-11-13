@@ -6,8 +6,8 @@ contato reais no lugar dos campos entre colchetes.
 
 ## Termos de uso
 
-1. **O que você compra:** licença de uso pessoal, não exclusiva e intransferível, do aplicativo Método IA Pro, nas versões para Windows, Android e Linux.
-2. **O que não pode:** revender, redistribuir ou compartilhar os arquivos de instalação com terceiros.
+1. **O que você compra:** licença de uso pessoal, não exclusiva e intransferível, do aplicativo Método IA Pro, em qualquer aparelho compatível com o navegador (instalação pela versão web).
+2. **O que não pode:** revender, redistribuir ou compartilhar o link de acesso com terceiros.
 3. **Conteúdo educacional:** o material (aulas, modelos, prompts) tem finalidade informativa. Não há garantia de resultado financeiro, de clientes ou de faturamento. Cada pessoa responde pelo que faz com ele.
 4. **Ferramentas de terceiros:** quem usa IA, WhatsApp ou outras ferramentas segue os termos delas. O aplicativo não envia mensagens automaticamente.
 5. **Suporte e atualizações:** [defina canal, prazo de resposta e política de atualização].
