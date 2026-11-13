@@ -27,6 +27,9 @@ abordagem, acompanhar clientes e projetos e calcular preço.
 
 ## O que vem dentro
 
+- **Plano de 7 dias até o primeiro cliente:** você escolhe o serviço e a cidade, e a tela Hoje mostra uma ação por vez (preparar a mensagem, achar negócios, abordar, responder, dar retorno), com metas diárias de esforço.
+- **Achar clientes:** abre as buscas no Mapa, no Google e no Instagram para o tipo de negócio e a cidade escolhidos, com checklist de conferência. Você olha e decide quem salvar. O app não coleta dados de empresas sozinho.
+- **Fila de clientes:** mensagem pronta e editável para cada negócio, link do WhatsApp com o texto, lembrete de retorno depois de 2 dias, proposta e fechamento. O envio é sempre seu, uma mensagem por vez.
 - **30 serviços** prontos, cada um com escopo, entregáveis, ferramentas, riscos e plano de execução.
 - **Construtor de serviços:** transforma uma ideia em escopo, etapas, prazo, riscos e checklist.
 - **Ofertas e propostas** editáveis, da dor do cliente ao próximo passo.
@@ -59,7 +62,7 @@ abordagem, acompanhar clientes e projetos e calcular preço.
 - **A inteligência artificial não vem embutida.** O IA Studio monta os prompts e a Biblioteca traz modelos; você os usa na ferramenta de IA que já utiliza (ChatGPT, Claude, Gemini etc.). Essas ferramentas podem ter custo próprio.
 - **Aviso do Windows:** ao instalar, o Windows pode mostrar "O Windows protegeu o computador" porque o instalador ainda não tem assinatura digital paga. Clique em "Mais informações" → "Executar assim mesmo". O guia explica passo a passo.
 - **Android:** o arquivo é instalado fora da Play Store. O sistema pede que você autorize a instalação de fontes desconhecidas e o Play Protect pode mostrar um aviso de app não reconhecido; o guia mostra como seguir.
-- **A busca automática de empresas ainda não existe.** A tela Roteiro mostra o plano. Você cadastra seus contatos manualmente ou por importação de backup.
+- **O app não traz lista de empresas.** Ele abre as buscas (Mapa, Google, Instagram) e você escolhe e salva os negócios. Essas buscas precisam de internet e dependem do que esses sites mostram na sua cidade.
 - O conteúdo é material educacional e ferramenta de organização. **Não garante resultado financeiro, clientes ou faturamento.**
 - Atualizações: [defina aqui o canal — e-mail, grupo ou área de membros — e cumpra].
 

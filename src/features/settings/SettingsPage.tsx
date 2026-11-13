@@ -2,6 +2,7 @@ import { useRef, useState } from 'react'
 import { usePreferences } from '@/app/preferencesContext'
 import { Badge, Button, Icon, Notice, Panel, SectionHeader } from '@/components/ui'
 import { logActivity } from '@/repositories'
+import { APP_VERSION } from '@/app/version'
 import { clearAllData, exportBackup, importBackup, parseBackup } from '@/storage/backup'
 import { saveTextFile } from '@/storage/saveFile'
 import { InstallCard } from '@/pwa/InstallCard'
@@ -397,6 +398,7 @@ export default function SettingsPage() {
             </li>
             <li>Dados locais não são sincronizados entre dispositivos. O backup é a forma de levá-los para outro.</li>
           </ul>
+          <p className="muted">Método IA Pro, versão {APP_VERSION}. Informe esta versão ao pedir suporte.</p>
         </div>
       </Panel>
     </div>
